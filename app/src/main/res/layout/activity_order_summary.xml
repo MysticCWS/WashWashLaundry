@@ -31,7 +31,9 @@
             android:id="@+id/backToServicesButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Back to Services" />
+            android:text="Back to Services"
+            android:background="@drawable/button"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
