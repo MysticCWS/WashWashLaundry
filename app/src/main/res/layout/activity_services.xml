@@ -23,7 +23,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Available Services"
+            android:text="WashWashLaundry Services"
+            android:textStyle="bold"
+            android:gravity="center"
             android:textSize="18sp"
             android:padding="16dp" />
 
