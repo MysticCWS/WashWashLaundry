@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@color/my_primary"
+            android:backgroundTint="@color/my_primary"
             android:text="Login" />
 
         <TextView

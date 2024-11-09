@@ -58,11 +58,11 @@
         <!-- Sign Up button -->
         <Button
             android:id="@+id/signUpButton"
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:text="Sign Up"
             android:padding="12dp"
-            android:background="@drawable/button"
+            android:backgroundTint="@color/my_primary"
             android:layout_marginTop="15dp"/>
 
         <!-- Existing user sign-in link -->

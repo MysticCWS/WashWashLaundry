@@ -7,20 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/my_fourth">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            />
 
         <!-- Display user email (non-editable) -->
         <TextView
             android:id="@+id/emailText"
-            android:layout_width="wrap_content"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/round_corner2"
             android:text="Email"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <!-- Name Input -->
         <EditText
@@ -28,10 +42,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Name"
+            android:textSize="18sp"
             android:inputType="textPersonName"
             android:padding="12dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/round_corner"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_corner2"/>
 
         <!-- Phone Input -->
         <EditText
@@ -40,18 +55,19 @@
             android:layout_height="wrap_content"
             android:hint="Phone"
             android:inputType="phone"
+            android:textSize="18dp"
             android:padding="12dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/round_corner"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_corner2"/>
 
         <!-- Save Button -->
         <Button
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save Changes"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button"
+            android:text=" Save "
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/my_primary"
             android:layout_gravity="center"/>
 
     </LinearLayout>
