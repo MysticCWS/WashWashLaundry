@@ -33,6 +33,17 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/round_corner"/>
 
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_corner"/>
+
+
         <!-- Password input -->
         <EditText
             android:id="@+id/password"

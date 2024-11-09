@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText email, password, name;
+    private EditText email, password, name, phone;
     private FirebaseAuth mAuth;
     private DatabaseReference database;
 
@@ -24,6 +24,7 @@ public class SignUpActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         name = findViewById(R.id.name);
+        phone = findViewById(R.id.phone);
         Button signUpButton = findViewById(R.id.signUpButton);
 
         mAuth = FirebaseAuth.getInstance();
@@ -36,8 +37,9 @@ public class SignUpActivity extends AppCompatActivity {
         String userEmail = email.getText().toString().trim();
         String userPassword = password.getText().toString().trim();
         String userName = name.getText().toString().trim();
+        String userPhone = name.getText().toString().trim();
 
-        if (userEmail.isEmpty() || userPassword.isEmpty() || userName.isEmpty()) {
+        if (userEmail.isEmpty() || userPassword.isEmpty() || userName.isEmpty() || userPhone.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -47,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
                 FirebaseUser firebaseUser = mAuth.getCurrentUser();
                 if (firebaseUser != null) {
                     String userId = firebaseUser.getUid();
-                    User user = new User(userId, userName, userEmail);
+                    User user = new User(userId, userName, userEmail, userPhone);
                     database.child(userId).setValue(user);
 
                     startActivity(new Intent(SignUpActivity.this, ServicesActivity.class));
