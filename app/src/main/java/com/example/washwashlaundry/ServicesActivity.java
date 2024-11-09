@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +23,7 @@ import com.example.washwashlaundry.Service;
 
 public class ServicesActivity extends AppCompatActivity {
     private RecyclerView recyclerViewServices;
-    private DatabaseReference servicesRef;
+    private DatabaseReference servicesRef, cartRef;
     private List<Service> serviceList = new ArrayList<>();
     private ServiceAdapter serviceAdapter;
 
@@ -38,7 +39,10 @@ public class ServicesActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://washwashlaundry-ef8c4-default-rtdb.asia-southeast1.firebasedatabase.app/");
         servicesRef = FirebaseDatabase.getInstance("https://washwashlaundry-ef8c4-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Services");
-        serviceAdapter = new ServiceAdapter(serviceList);
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        cartRef = database.getReference("Cart").child(userId);
+
+        serviceAdapter = new ServiceAdapter(serviceList, servicesRef, ServicesActivity.this);
         recyclerViewServices.setAdapter(serviceAdapter);
 
         loadServices();
@@ -64,6 +68,7 @@ public class ServicesActivity extends AppCompatActivity {
                     Service service = serviceSnapshot.getValue(Service.class);
                     if (service != null) {
                         serviceList.add(service);
+
                     }
                 }
                 serviceAdapter.notifyDataSetChanged();
