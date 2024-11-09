@@ -1,6 +1,9 @@
 package com.example.washwashlaundry;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +29,7 @@ public class ServicesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         FirebaseApp.initializeApp(this); // Initialize Firebase
         setContentView(R.layout.activity_services);
 
@@ -38,6 +42,17 @@ public class ServicesActivity extends AppCompatActivity {
         recyclerViewServices.setAdapter(serviceAdapter);
 
         loadServices();
+
+        // Initialize Edit Profile Button
+        Button editProfileButton = findViewById(R.id.editProfileButton);
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the EditProfileActivity when the button is clicked
+                Intent intent = new Intent(ServicesActivity.this, EditProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadServices() {
