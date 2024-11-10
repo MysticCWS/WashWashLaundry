@@ -28,7 +28,7 @@
             android:layout_height="58dp"
             android:layout_marginTop="70dp"
             android:background="@drawable/round_corner"
-            android:src="@drawable/washwashlaundry_logo">
+            >
 
         </ImageView>
 
