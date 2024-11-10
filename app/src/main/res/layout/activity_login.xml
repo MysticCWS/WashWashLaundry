@@ -12,6 +12,12 @@
         android:gravity="center"
         >
 
+        <View
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@drawable/washwashlaundry_logo"
+            android:layout_marginBottom="100dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +62,8 @@
             android:layout_height="wrap_content"
             android:text="Don't have an account? Sign Up"
             android:textColor="@android:color/white"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="200dp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

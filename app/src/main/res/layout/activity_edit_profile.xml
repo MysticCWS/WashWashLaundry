@@ -15,6 +15,11 @@
         android:background="@color/my_fourth">
 
 
+        <View
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:background="@drawable/washwashlaundry_logo" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,10 +33,11 @@
         <!-- Display user email (non-editable) -->
         <TextView
             android:id="@+id/emailText"
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/round_corner2"
+            android:padding="12dp"
             android:text="Email"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
