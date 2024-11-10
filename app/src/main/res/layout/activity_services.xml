@@ -1,35 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/my_fourth">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/my_fourth"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:orientation="vertical"
 
-        >
+        tools:layout_editor_absoluteX="10dp">
 
-        <Button
-            android:id="@+id/editProfileButton"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit Profile"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/my_primary"/>
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/editProfileButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/my_primary"
+                android:text="Edit Profile" />
+
+            <Button
+                android:id="@+id/viewCartButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/my_primary"
+                android:text="Cart"
+                />
+
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="WashWashLaundry Services"
-            android:textStyle="bold"
             android:gravity="center"
+            android:padding="16dp"
+            android:text="WashWashLaundry Services"
             android:textSize="18sp"
-            android:padding="16dp" />
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewServices"
@@ -40,13 +58,12 @@
             />
 
 
-
-<!--        &lt;!&ndash; Add to Cart Button &ndash;&gt;-->
-<!--        <Button-->
-<!--            android:id="@+id/addToCartButton"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Add to Cart"/>-->
+        <!--        &lt;!&ndash; Add to Cart Button &ndash;&gt;-->
+        <!--        <Button-->
+        <!--            android:id="@+id/addToCartButton"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Add to Cart"/>-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,6 +36,10 @@ public class ServicesActivity extends AppCompatActivity {
 
         recyclerViewServices = findViewById(R.id.recyclerViewServices);
         recyclerViewServices.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewServices.setHasFixedSize(true);
+
+
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://washwashlaundry-ef8c4-default-rtdb.asia-southeast1.firebasedatabase.app/");
         servicesRef = FirebaseDatabase.getInstance("https://washwashlaundry-ef8c4-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Services");
@@ -56,6 +60,12 @@ public class ServicesActivity extends AppCompatActivity {
                 Intent intent = new Intent(ServicesActivity.this, EditProfileActivity.class);
                 startActivity(intent);
             }
+        });
+
+        Button viewCartButton = findViewById(R.id.viewCartButton);
+        viewCartButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ServicesActivity.this, CartActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -80,4 +90,5 @@ public class ServicesActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -26,8 +26,9 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
     // Constructor
     public ServiceAdapter(List<Service> serviceList, DatabaseReference servicesRef, ServicesActivity servicesActivity) {
         this.serviceList = serviceList;
-        this.cartRef = cartRef;
         this.context = context;
+        this.cartRef = FirebaseDatabase.getInstance().getReference("Cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
     }
 
     @NonNull
@@ -47,6 +48,10 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
         holder.serviceName.setText(service.getName());
         holder.servicePrice.setText(String.format("RM %.2f", service.getPrice()));
         holder.addToCartButton.setOnClickListener(v -> addToCart(service));
+
+        holder.addToCartButton.setOnClickListener(V->{
+            addToCart(service);
+        });
     }
 
     @Override
