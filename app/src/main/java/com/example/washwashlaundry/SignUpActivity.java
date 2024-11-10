@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,11 +27,14 @@ public class SignUpActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         phone = findViewById(R.id.phone);
         Button signUpButton = findViewById(R.id.signUpButton);
+        TextView loginLink = findViewById(R.id.loginLink);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance("https://washwashlaundry-ef8c4-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
 
         signUpButton.setOnClickListener(v -> signUpUser());
+        loginLink.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, LoginActivity.class)));
+
     }
 
     private void signUpUser() {
@@ -52,11 +56,16 @@ public class SignUpActivity extends AppCompatActivity {
                     User user = new User(userId, userName, userEmail, userPhone);
                     database.child(userId).setValue(user);
 
-                    startActivity(new Intent(SignUpActivity.this, ServicesActivity.class));
+                    //Redirect to LoginActivity after successful registration
+                    Toast.makeText(SignUpActivity.this, "Registration successful! Please log in.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                     finish();
+
                 }
             } else {
-                Toast.makeText(SignUpActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SignUpActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                String errorMessage = task.getException() != null ? task.getException().getMessage() : "Registration failed";
+                Toast.makeText(SignUpActivity.this, errorMessage, Toast.LENGTH_LONG).show();
             }
         });
     }
