@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:text="Service Name"
             android:textSize="18sp"
+            android:layout_marginBottom="5dp"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content"
             android:text="RM0.00"
             android:textSize="16sp"
+            android:layout_marginBottom="5dp"
             android:textColor="@android:color/black" />
 
         <!-- Add to Cart Button -->
@@ -32,7 +34,13 @@
             android:id="@+id/addToCartButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add to Cart"/>
+            android:text="Add to Cart"
+            android:backgroundTint="@color/my_primary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </RelativeLayout>
